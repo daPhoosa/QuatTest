@@ -18,7 +18,8 @@ void loop() {
   int steps = 100;
 
   for(int i=0; i<steps; i++){
-
+    
+    // This is the function from my blog post: http://philstech.blogspot.com/2014/09/fast-quaternion-integration-for.html
     Quat changeQuat = Quaternion(quarterTurn, 1000000UL / steps); // for this test, this will always be the same
     
     testQuaternion = Mul(testQuaternion, changeQuat); // multiply quaternions to combine them
