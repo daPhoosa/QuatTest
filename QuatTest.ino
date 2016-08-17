@@ -11,8 +11,6 @@
 
 Quat testQuaternion;
 
-const Vec3 quarterTurn = Vector(0, PI / 2.0f, 0);  // 90 degree  rotation around Y-axis
-
 void setup() {
   SERIAL_PORT.begin(57600);
   delay(1000);
@@ -24,12 +22,16 @@ void loop() {
 
   int steps = 100;
 
+  Quat changeQuat;
+
+  const Vec3 quarterTurn = Vector(0, PI / 2.0f, 0);  // 90 degree  rotation around Y-axis
+
   for(int i=0; i<steps; i++){
     
     // This is the function from my blog post: http://philstech.blogspot.com/2014/09/fast-quaternion-integration-for.html
-    Quat changeQuat = Quaternion(quarterTurn, 1000000UL / steps); // for this test, this will always be the same
+    changeQuat = Quaternion(quarterTurn, 1000000UL / steps); // arguments: rotation amount and time delta in microseconds
     
-    testQuaternion = Mul(testQuaternion, changeQuat); // multiply quaternions to combine them
+    testQuaternion = Mul(testQuaternion, changeQuat); // multiply quaternions to combine rotations
     
   }
 
