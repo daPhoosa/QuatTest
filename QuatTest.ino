@@ -1,3 +1,10 @@
+/*
+ *    QuatTest.ino
+ *    Simple test of quaternion integration and vector translation
+ *    Phillip Schmidt, 2016
+ */
+ 
+ 
 #define SERIAL_PORT Serial
 
 #include <Math3D.h>
