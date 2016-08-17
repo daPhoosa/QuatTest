@@ -35,8 +35,13 @@ void loop() {
 
   Vec3 testResult = Rotate(Vector(1.0f, 0.0f, 0.0f), testQuaternion);  // rotate vector with quaternion
 
+  SERIAL_PORT.print("Quaternion: ");
   display(testQuaternion);
+  
+  SERIAL_PORT.print("Rotated Vec: ");
   display(testResult);
+  
+  SERIAL_PORT.print("Vec Magnitude: ");
   SERIAL_PORT.println(Magnitude(testResult), 6);
 
   SERIAL_PORT.println(" ");
